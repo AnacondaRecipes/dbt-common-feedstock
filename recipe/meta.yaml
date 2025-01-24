@@ -56,6 +56,11 @@ about:
   doc_url: https://github.com/dbt-labs/dbt-common/tree/main/docs
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/63495
+    reason: Dependency for dbt-core
+  recipe-maintainers:
+    - ianaobi
   recipe-maintainers:
     - conda-forge/dbt
     - rxm7706
