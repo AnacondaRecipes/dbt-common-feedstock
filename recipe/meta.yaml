@@ -56,7 +56,6 @@ extra:
     reason: Dependency for dbt-core
   recipe-maintainers:
     - ianaobi
-    - bkreider
   recipe-maintainers:
     - conda-forge/dbt
     - rxm7706
