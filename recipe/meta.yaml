@@ -1,5 +1,5 @@
 {% set name = "dbt-common" %}
-{% set version = "1.12.0" %}
+{% set version = "1.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dbt_common-{{ version }}.tar.gz
-  sha256: f65192ccee138515cbace7dfda14f58740e42903eab80948b6ed9a007e99075e
+  sha256: 2227e24a165780c5368320dedd3c6bc40038dedece48af03daab43c11bf20372
 
 build:
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  # s390x missing agate and deepdiff
-  skip: true  # [py<39 or s390x]
 
 requirements:
   host:
@@ -30,30 +29,25 @@ requirements:
     - jinja2 >=3.1.3,<4
     - mashumaro >=3.9,<4.0
     - pathspec >=0.9,<0.13
-    - protobuf >=4.0.0,<5.0.0
+    - protobuf >=5.0,<6.0
     - python-dateutil >=2.0,<3.0
     - requests <3.0.0
     - typing_extensions >=4.4,<5.0
 
 test:
-# Tests not included in pypi source, and github has no tagged releases.
   imports:
     - dbt_common
   commands:
     - pip check
   requires:
     - pip
+    - python
 
 about:
   home: https://github.com/dbt-labs/dbt-common
   summary: The shared common utilities that dbt-core and adapter implementations use
-  description: |
-    The shared common utilities for dbt-core and adapter implementations use
   license: Apache-2.0
   license_file: LICENSE
-  license_family: Apache
-  dev_url: https://github.com/dbt-labs/dbt-common
-  doc_url: https://github.com/dbt-labs/dbt-common/tree/main/docs
 
 extra:
   anaconda-services:
