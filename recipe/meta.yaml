@@ -30,7 +30,7 @@ requirements:
     - jinja2 
     - mashumaro
     - pathspec
-    - protobuf
+    - protobuf >=5.0,<6.0
     - python-dateutil
     - requests 
     - typing_extensions 
