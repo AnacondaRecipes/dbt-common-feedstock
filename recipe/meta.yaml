@@ -49,8 +49,7 @@ test:
 about:
   home: https://github.com/dbt-labs/dbt-common
   summary: The shared common utilities that dbt-core and adapter implementations use
-  description: |
-    The shared common utilities for dbt-core and adapter implementations use
+  description: The shared common utilities for dbt-core and adapter implementations use
   license: Apache-2.0
   license_file: LICENSE
   license_family: Apache
