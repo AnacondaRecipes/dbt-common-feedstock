@@ -1,5 +1,5 @@
 {% set name = "dbt-common" %}
-{% set version = "1.28.0" %}
+{% set version = "1.38.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
-  sha256: 31f42029cccfdfe072d36abe649a479bad20b86ef711fe32de72411b9acd45c9
+  sha256: 05f9c682c1c09b6a0ce79fe18dd7244a4549c3740329692bc19be9e7498f516f
   patches:
     - patches/0001-update-protobuf-version.patch
 
@@ -38,7 +38,7 @@ requirements:
     - typing_extensions >=4.4,<5.0
 
 test:
-# Tests not included in pypi source, and github has no tagged releases.
+  # Tests not included in pypi source, and github has no tagged releases.
   imports:
     - dbt_common
   commands:
