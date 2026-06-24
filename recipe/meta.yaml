@@ -37,7 +37,7 @@ requirements:
     - typing-extensions >=4.4,<5.0
 
 test:
-  # Tests not included in pypi source, and github has no tagged releases.
+# Tests not included in pypi source, and github has no tagged releases.
   imports:
     - dbt_common
   commands:
