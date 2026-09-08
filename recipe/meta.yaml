@@ -43,7 +43,11 @@ test:
 # Tests not included in pypi source, and github has no tagged releases.
   imports:
     - dbt_common
-  commands: []
+  # pip check omitted: PyPI dbt-common {{ version }} requires protobuf <7.0 in
+  # requires_dist, so pip check fails when the test env installs protobuf 7.x
+  # (PKG-15573). Restore the commands block once upstream metadata allows it.
+  # commands:
+  #   - pip check
   requires:
     - pip
 
