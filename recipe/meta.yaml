@@ -10,7 +10,7 @@ source:
   sha256: 868256ab2b59328efdd455644172ad17303f3f6a78a015f06667e865e068d620
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<310]
 
@@ -33,7 +33,7 @@ requirements:
     # https://github.com/Fatal1ty/mashumaro/blob/v3.22/pyproject.toml#L34
     - msgpack-python >=0.5.6
     - pathspec >=0.9,<1.1
-    - protobuf {{ libprotobuf }}
+    - protobuf >=6.0,<7.0
     - python-dateutil >=2.0,<3.0
     - requests <3.0.0
     - typing-extensions >=4.4,<5.0
@@ -43,11 +43,8 @@ test:
 # Tests not included in pypi source, and github has no tagged releases.
   imports:
     - dbt_common
-  # pip check omitted: PyPI dbt-common {{ version }} requires protobuf <7.0 in
-  # requires_dist, so pip check fails when the test env installs protobuf 7.x
-  # (PKG-15573). Restore the commands block once upstream metadata allows it.
-  # commands:
-  #   - pip check
+  commands:
+    - pip check
   requires:
     - pip
 
@@ -65,6 +62,3 @@ extra:
   recipe-maintainers:
     - conda-forge/dbt
     - rxm7706
-  skip-lints:
-    - cbc_dep_in_run_missing_from_host
-    - missing_pip_check
